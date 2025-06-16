@@ -1,5 +1,7 @@
 const cursor = document.getElementById('fake-cursor')! as HTMLDivElement
+const cursor1Svg = cursor.querySelector('svg') as SVGElement
 const cursor2 = document.getElementById('fake-cursor2')! as HTMLDivElement
+const cursor2Svg = cursor2.querySelector('svg') as SVGElement
 const slider1 = document.getElementById('myRange')! as HTMLInputElement
 const slider1label = document.getElementById('myRangelabel')! as HTMLLabelElement
 const springKSlider = document.getElementById('springK') as HTMLInputElement
@@ -61,6 +63,41 @@ window.addEventListener('touchstart', e => {
   if (e.touches.length > 0) {
     const touch = e.touches[0]
     handlePointerMove(touch.clientX, touch.clientY)
+  }
+})
+
+window.addEventListener("mousedown", e => {
+  const button = e.button
+  if (button === 0) {
+    cursor1Svg.classList.add('clicked')
+  }
+  else if (button === 1) {
+    // middle
+    cursor1Svg.classList.add('mclicked')
+  }
+  else if (button === 2) {
+    cursor1Svg.classList.add('rclicked')
+  }
+})
+window.addEventListener("contextmenu", e => {
+  e.preventDefault()
+})
+window.addEventListener("dblclick", () => {
+  cursor1Svg.classList.add('dblclicked')
+  setTimeout(() => cursor1Svg.classList.remove('dblclicked'), 100)
+})
+
+
+window.addEventListener('mouseup', e => {
+  const button = e.button
+  if (button === 0) {
+    cursor1Svg.classList.remove('clicked')
+  }
+  else if (button === 1) {
+    cursor1Svg.classList.remove('mclicked')
+  }
+  else if (button === 2) {
+    cursor1Svg.classList.remove('rclicked')
   }
 })
 
@@ -139,7 +176,7 @@ function update(dt: number) {
 }
 
 function render() {
-  const cursoroffset = { x: 12 - (innerWidth / 2), y: 12 - (innerHeight / 2) }
+  const cursoroffset = { x: 32 - (innerWidth / 2), y: 33 - (innerHeight / 2) }
   cursor.style.transform = `translate(${renderPos.x + cursoroffset.x}px, ${renderPos.y + cursoroffset.y}px)`
 
   cursor2.style.transform = `translate(${target.x + cursoroffset.x}px, ${target.y + cursoroffset.y}px)`

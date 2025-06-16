@@ -7,15 +7,34 @@
   height: 5rem;
 }
 
-#fake-cursor svg {
-  width: 100%;
-  height: 100%;
+#fake-cursor svg.clicked,
+#fake-cursor2 svg.clicked {
+  fill: #f9beca;
 }
 
+#fake-cursor svg.rclicked,
+#fake-cursor2 svg.rclicked {
+  fill: #ff2853;
+}
+
+#fake-cursor svg.mclicked,
+#fake-cursor2 svg.mclicked {
+  fill: #ff708d;
+}
+
+#fake-cursor svg.dblclicked,
+#fake-cursor2 svg.dblclicked {
+  fill: #ff0033;
+}
+
+#fake-cursor svg,
 #fake-cursor2 svg {
   width: 100%;
   height: 100%;
+  transition: fill 0.1s ease;
+    fill: transparent;
 }
+
 
 .numberlabel {
   width: 5ch;
