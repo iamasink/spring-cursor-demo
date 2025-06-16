@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>funny cursor thing</title>
+  <link rel="stylesheet" href="/src/style.css" />
+  <!-- disable darkreader -->
+  <meta name="darkreader-lock">
+</head>
+
+<body style="background-color: black;">
+  <div id="app">
+    <h1>funny cursor thing</h1>
+    <div class="slidecontainer">
+      <label>Slider</label>
+      <label class="numberlabel" id="myRangelabel"></label>
+      <input type="range" min="1" max="100" value="0" class="slider" id="myRange">
+    </div>
+
+    <p>settings..</p>
+
+    <div class="slidecontainer">
+      <label>Spring K</label>
+      <label class="numberlabel" id="springKlabel"></label>
+      <input type="range" min="100" max="100000" value="0" step="100" class="slider" id="springK">
+    </div>
+
+    <div class="slidecontainer">
+      <label>Damping</label>
+      <label class="numberlabel" id="dampinglabel"></label>
+      <input type="range" min="1" max="1000" value="0" step="1" class="slider" id="damping">
+    </div>
+
+    <div class="slidecontainer">
+      <label>Lock Strength</label>
+      <label class="numberlabel" id="lockStrengthlabel"></label>
+      <input type="range" min="1" max="100" value="0" step="1" class="slider" id="lockStrength">
+    </div>
+
+    <div class="otheroptions">
+      <label>
+        <input type="checkbox" id="showRealCursor"> Show real cursor </label>
+      <label><input type="checkbox" id="lockDamping" checked> lock damping slider </label>
+    </div>
+
+    <div style="margin-top: 1em;">
+      <button id="resetButton" type="button">Reset</button>
+    </div>
+
+    <div id="fake-cursor">
+      <svg viewBox="0 0 100 100" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35,35 L65,50 L35,65 Z" fill="red" />
+      </svg>
+    </div>
+    <div id="fake-cursor2">
+      <svg viewBox="0 0 100 100" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35,35 L65,50 L35,65 Z" fill="pink" />
+      </svg>
+    </div>
+    <div id="fpscounter">FPS: </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
