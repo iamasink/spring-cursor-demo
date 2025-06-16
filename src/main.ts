@@ -78,7 +78,7 @@ sliders.forEach(({ element }) => {
     isDragging = true
     updateSliderLock(e.clientX, element)
   })
-  element.addEventListener('pointerup', e => {
+  element.addEventListener('pointerup', () => {
     isDragging = false
     isLocked = false
   })
